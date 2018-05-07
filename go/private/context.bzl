@@ -137,7 +137,7 @@ def _library_to_source(go, attr, library, coverage_instrumented):
       "x_defs" : {},
       "deps" : getattr(attr, "deps", []),
       "gc_goopts" : getattr(attr, "gc_goopts", []),
-      "runfiles" : go._ctx.runfiles(files=go._ctx.files.data, collect_data = True),
+      "runfiles" : go._ctx.runfiles(collect_data = True),
       "cgo_archives" : [],
       "cgo_deps" : [],
       "cgo_exports" : [],
