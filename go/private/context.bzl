@@ -128,7 +128,7 @@ def _library_to_source(go, attr, library, coverage_instrumented):
   generated_srcs = getattr(library, "srcs", [])
   srcs = attr_srcs + generated_srcs
   files = []
-  if go._ctx.files.data:
+  if "data" in go._ctx.files:
     files = [go._ctx.files.data]
   source = {
       "library": library,
