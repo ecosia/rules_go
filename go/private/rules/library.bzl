@@ -51,6 +51,7 @@ go_library = go_rule(
     attrs = {
         "data": attr.label_list(
             allow_files = True,
+            cfg = "data",
         ),
         "srcs": attr.label_list(allow_files = True),
         "deps": attr.label_list(providers = [GoLibrary]),
