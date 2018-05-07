@@ -127,9 +127,6 @@ def _library_to_source(go, attr, library, coverage_instrumented):
   attr_srcs = [f for t in getattr(attr, "srcs", []) for f in as_iterable(t.files)]
   generated_srcs = getattr(library, "srcs", [])
   srcs = attr_srcs + generated_srcs
-  files = []
-  if "data" in go._ctx.files:
-    files = [go._ctx.files.data]
   source = {
       "library": library,
       "mode": go.mode,
@@ -140,7 +137,7 @@ def _library_to_source(go, attr, library, coverage_instrumented):
       "x_defs" : {},
       "deps" : getattr(attr, "deps", []),
       "gc_goopts" : getattr(attr, "gc_goopts", []),
-      "runfiles" : go._ctx.runfiles(files=files, collect_data = True),
+      "runfiles" : go._ctx.runfiles(collect_data = True),
       "cgo_archives" : [],
       "cgo_deps" : [],
       "cgo_exports" : [],
